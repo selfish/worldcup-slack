@@ -42,3 +42,9 @@ This was just a quick project, and there's a lot of room for improvement.
 ## Special thanks
 
 A Huge shout out to http://worldcup.sfg.io/ for the FIFA scraper, which hw was quick to fix after the games started!
+
+## WARNING
+
+This was written in a rush the day World Cup in 2018 started. This is not good o proper code. 
+This project is based on a scraper, and scraping is inherently a messy and brittle procedural process.
+My primary goal was the get something functional. Please do not use as an example of good Node.js code!
