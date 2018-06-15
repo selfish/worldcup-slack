@@ -1,10 +1,19 @@
-Live-WorldCup-Notification-for-Slack
-====================================
+# Slack Worldcup Bot
 
-It's a NodeJS worker that request every 5 seconds data from the FIFA World Cup API and notifies via Slack API (It's possible to apply other ways of notification) the changes of the match.
+Node JS worker to update a slack channel with live match details from the 2018 world cup
 
-====================================
+### Notifications:
+- Match start
+- Match end
+- Score Change
+- Match events (penalty, card, goal, ...)
 
-+ It notifies when a match starts
-+ It notifies when the score changes (this means Goal or the match finished)
+### Reports: 
+Will report once a day on the following:
+- Upcoming matches today
+- Matches completed today (+scores)
+- Matches coming tomorrow
 
+## Deployment:
+
+The bot includes a Heroku Procfile, usable with Heroku free tier (Hobby dev) Dynos.
