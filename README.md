@@ -24,15 +24,15 @@ The bot includes a Heroku Procfile, usable with Heroku free tier (Hobby dev) Dyn
 
 ### Optional environment variables:
 
-`BOT_NAME` - Bot name that should appear in slack (default: Cup Bot). 
+`BOT_NAME` - Bot name that should appear in slack (default: Cup Bot)
 
-`BOT_ICON` - Icon URL for the bot to use in slack.
+`BOT_ICON` - Icon URL for the bot to use in slack
 
-`NODE_ENV` - If set to dev / development will start in dev mode, and post to dev channel.
+`NODE_ENV` - If set to dev / development will start in dev mode, and post to dev channel
 
-`DEBUG_CHANNEL` - Slack channel to post to in dev mode
+`DEBUG_CHANNEL` - Slack channel to post to in dev mode (default: #wc-debug)
 
-`SLACK_CHANNEL` - Slack channel to post to in production mode
+`SLACK_CHANNEL` - Slack channel to post to in production mode (default: #worldcup)
 
 ## Contribution
 
@@ -41,7 +41,7 @@ This was just a quick project, and there's a lot of room for improvement.
 
 ## Special thanks
 
-A Huge shout out to http://worldcup.sfg.io/ for the FIFA scraper, which hw was quick to fix after the games started!
+A huge shout out to http://worldcup.sfg.io/ for the FIFA scraper ([estiens/world_cup_json](https://github.com/estiens/world_cup_json)), which he was quick to fix after the games started!
 
 ## WARNING
 
