@@ -4,7 +4,7 @@ const {vs} = require('./format');
 const {todayUpcoming, todaySummary} = require('./announcers');
 const Match = require('./match');
 
-const active = {};git init
+const active = {};
 
 const update = async () => {
 	console.log('Update start');
