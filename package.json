@@ -1,11 +1,10 @@
 {
-  "name": "AeroBot",
+  "name": "slack-worldcup",
   "version": "0.0.1",
-  "private": true,
+  "main": "bot.js",
   "scripts": {
     "start": "node bot.js"
   },
-  "main": "bot.js",
   "engines": {
     "node": "9.11.1",
     "npm": "6.1.0"
