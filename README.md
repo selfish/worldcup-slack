@@ -22,7 +22,7 @@ The bot includes a Heroku Procfile, usable with Heroku free tier (Hobby dev) Dyn
 
 `SLACKHOOK` - Slack webhook URL.
 
-### Required environment variables:
+### Optional environment variables:
 
 `BOT_NAME` - Bot name that should appear in slack (default: Cup Bot). 
 
