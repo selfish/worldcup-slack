@@ -17,3 +17,15 @@ Will report once a day on the following:
 ## Deployment:
 
 The bot includes a Heroku Procfile, usable with Heroku free tier (Hobby dev) Dynos.
+
+### Required environment variables:
+
+`SLACKHOOK` - Slack webhook URL.
+
+### Required environment variables:
+
+`BOT_NAME` - Bot name that should appear in slack (default: Cup Bot). 
+`BOT_ICON` - Icon URL for the bot to use in slack.
+`NODE_ENV` - If set to dev / development will start in dev mode, and post to dev channel.
+`DEBUG_CHANNEL` - Slack channel to post to in dev mode
+`SLACK_CHANNEL` - Slack channel to post to in production mode
