@@ -33,3 +33,12 @@ The bot includes a Heroku Procfile, usable with Heroku free tier (Hobby dev) Dyn
 `DEBUG_CHANNEL` - Slack channel to post to in dev mode
 
 `SLACK_CHANNEL` - Slack channel to post to in production mode
+
+## Contribution
+
+Any and all contribution is more than welcome.
+This was just a quick project, and there's a lot of room for improvement.
+
+## Special thanks
+
+A Huge shout out to http://worldcup.sfg.io/ for the FIFA scraper, which hw was quick to fix after the games started!
