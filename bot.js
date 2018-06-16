@@ -29,9 +29,6 @@ const update = async () => {
 		});
 };
 
-// job('*/10 * * * * *', update, null, true, 'UTC');
-// job('0 0 7 * * *', todayUpcoming, null, true, 'UTC');
-// job('0 0 20 * * *', todaySummary, null, true, 'UTC');
-
-todayUpcoming();
-todaySummary();
+job('*/10 * * * * *', update, null, true, 'UTC');
+job('0 0 7 * * *', todayUpcoming, null, true, 'UTC');
+job('0 0 20 * * *', todaySummary, null, true, 'UTC');
