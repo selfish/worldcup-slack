@@ -33,7 +33,7 @@ class Match {
 
 		if (matchData.home_team.goals !== this.matchData.home_team.goals ||
 			matchData.away_team.goals !== this.matchData.away_team.goals) {
-			await this.announce.score(matchData);
+			await this.announce.vsScore(matchData);
 		}
 
 		this.matchData = matchData;

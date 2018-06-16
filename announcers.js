@@ -1,12 +1,13 @@
 const _ = require('lodash');
+const moment = require('moment-timezone');
 const {get} = require('./request');
 const {teams} = require('./config');
-const {vs, vsTime, score} = require('./format');
+const {vs, vsScore, score} = require('./format');
 const {announce, slackLink} = require('./slack');
 
 const announceMatchStart = matchData => announce(`Game starts: ${vs(matchData)} (${_.get(matchData, 'location')}) - ${slackLink('Watch Live', 'https://www.kan.org.il/fifaworldcup/matches/')}`);
-const announceMatchComplete = matchData => announce(`Game ended: ${score(matchData)} (${_.get(matchData, 'location')}) - ${slackLink('Watch Replay', 'https://www.kan.org.il/fifaworldcup/matches/')}`);
-const announceScore = matchData => announce(`Score update: ${score(matchData)}`);
+const announceMatchComplete = matchData => announce(`Game ended: ${vsScore(matchData)} (${_.get(matchData, 'location')}) - ${slackLink('Watch Replay', 'https://www.kan.org.il/fifaworldcup/matches/')}`);
+const announceScore = matchData => announce(`Score update: ${vsScore(matchData)}`);
 
 const events = {
 	goal: 'Goal!',
@@ -28,7 +29,7 @@ const announceEvent = (event, team, matchData) => {
 	const fields = [
 		{short: true, title: 'Team:', value: country},
 		{short: true, title: 'Player:', value: player},
-		{short: true, title: 'Current score:', value: score(matchData)},
+		{short: true, title: 'Current vsScore:', value: vsScore(matchData)},
 		{short: true, title: 'Time:', value: time}
 
 	];
@@ -38,24 +39,36 @@ const announceEvent = (event, team, matchData) => {
 
 const todayUpcoming = async () => {
 	const matches = await get('/matches/today');
-	const lines = '```\n    ' + matches.map(vsTime).join('\n    ') + '\n```';
-	return announce('*Upcoming Matches today:*\n' + lines);
+	const fields = matches.map(m => ({
+		short: false,
+		title: vs(m),
+		value: moment(m.datetime).tz('Asia/Jerusalem').format('HH:mm (z)')
+	}));
+	return announce('Upcoming Matches today:', null, fields);
 };
 
 const todaySummary = async () => {
 	const matchesToday = await get('/matches/today');
-	const linesToday = '```\n    ' + matchesToday.map(score).join('\n    ') + '\n```';
-	await announce('*Matches played today:*\n' + linesToday);
+	const fieldsToday = matchesToday.map(m => ({
+		short: false,
+		title: vs(m),
+		value: score(m)
+	}));
+	await announce('Matches played today:', null, fieldsToday);
 
 	const matchesTomorrow = await get('/matches/tomorrow');
-	const linesTomorrow = '```\n    ' + matchesTomorrow.map(vsTime).join('\n    ') + '\n```';
-	return announce('*Upcoming Matches tomorrow:*\n' + linesTomorrow);
+	const fieldsTomorrow = matchesTomorrow.map(m => ({
+		short: false,
+		title: vs(m),
+		value: moment(m.datetime).tz('Asia/Jerusalem').format('HH:mm (z)')
+	}));
+	return announce('Upcoming Matches tomorrow:', null, fieldsTomorrow);
 };
 
 module.exports = {
 	start: announceMatchStart,
 	end: announceMatchComplete,
-	score: announceScore,
+	vsScore: announceScore,
 	event: announceEvent,
 	todayUpcoming,
 	todaySummary
