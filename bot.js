@@ -8,7 +8,7 @@ const active = {};
 
 const update = async () => {
 	console.log('Update start');
-	const matches = await get('/matches');
+	const matches = await get('/matches/today');
 
 	matches
 		.filter(matchData => matchData.status !== 'future')
@@ -29,6 +29,6 @@ const update = async () => {
 		});
 };
 
-job('*/10 * * * * *', update, null, true, 'UTC');
+job('*/30 * * * * *', update, null, true, 'UTC');
 job('0 0 7 * * *', todayUpcoming, null, true, 'UTC');
 job('0 0 20 * * *', todaySummary, null, true, 'UTC');
