@@ -10,8 +10,9 @@ const announceMatchComplete = matchData => announce(`Game ended: ${vsScore(match
 const announceScore = matchData => announce(`Score update: ${vsScore(matchData)}`);
 
 const events = {
-	goal: 'Goal!',
+	'goal': 'Goal!',
 	'goal-own': 'Own goal!'
+	'goal-penalty': 'Penalty!'
 };
 
 const announceEvent = (event, team, matchData) => {
