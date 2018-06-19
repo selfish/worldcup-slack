@@ -4,6 +4,7 @@ module.exports = {
 	channel: process.env.NODE_ENV.includes('dev') ?
 		(process.env.DEBUG_CHANNEL || '#wc-debug') :
 		(process.env.SLACK_CHANNEL || '#worldcup'),
+	timezone: process.env.TIMEZONE || 'Asia/Jerusalem',
 	teams: {
 		russia: {
 			id: 1,

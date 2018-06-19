@@ -3,6 +3,7 @@ const moment = require('moment-timezone');
 const {get} = require('./request');
 const {teams} = require('./config');
 const {vs, vsScore, score} = require('./format');
+const {timezone} = require('./config');
 const {announce, slackLink} = require('./slack');
 
 const announceMatchStart = matchData => announce(`Game starts: ${vs(matchData)} (${_.get(matchData, 'location')}) - ${slackLink('Watch Live', 'https://www.kan.org.il/fifaworldcup/matches/')}`);
@@ -43,7 +44,7 @@ const todayUpcoming = async () => {
 	const fields = matches.map(m => ({
 		short: false,
 		title: vs(m),
-		value: moment(m.datetime).tz('Asia/Jerusalem').format('HH:mm (z)')
+		value: moment(m.datetime).tz(timezone).format('HH:mm (z)')
 	}));
 	return announce('Upcoming Matches today:', null, fields);
 };
