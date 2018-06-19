@@ -5,7 +5,7 @@ class Match {
 	constructor() {
 		this.matchData = {
 			home_team: {goals: 0},
-			away_team: {goals: 1},
+			away_team: {goals: 0},
 			home_team_events: [],
 			away_team_events: []
 		};
