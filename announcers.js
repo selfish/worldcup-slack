@@ -11,7 +11,7 @@ const announceScore = matchData => announce(`Score update: ${vsScore(matchData)}
 
 const events = {
 	'goal': 'Goal!',
-	'goal-own': 'Own goal!'
+	'goal-own': 'Own goal!',
 	'goal-penalty': 'Penalty!'
 };
 
