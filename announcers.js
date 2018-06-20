@@ -1,9 +1,8 @@
 const _ = require('lodash');
 const moment = require('moment-timezone');
 const {get} = require('./request');
-const {teams} = require('./config');
+const {teams, timezone} = require('./config');
 const {vs, vsScore, score} = require('./format');
-const {timezone} = require('./config');
 const {announce, slackLink} = require('./slack');
 
 const announceMatchStart = matchData => announce(`Game starts: ${vs(matchData)} (${_.get(matchData, 'location')}) - ${slackLink('Watch Live', 'https://www.kan.org.il/fifaworldcup/matches/')}`);
