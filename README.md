@@ -16,8 +16,12 @@ Will report once a day on the following:
 
 ## Deployment:
 
-The bot includes a Heroku Procfile, usable with Heroku free tier (Hobby dev) Dynos. Note if you are running on Heroku you'll need to scale your web dyno to 0 (or it will crash because there isn't a web server connected to a port) and your worker dyno to 1 (to actually start the worker). You'll only have to do this after your first deploy.
-`heroku ps:scale web=0 worker=1`
+The bot includes a Heroku Procfile, usable with Heroku free tier (Hobby dev) Dynos. Note if you are running on Heroku you'll need to scale your web dyno to 0 (or it will crash because there isn't a web server connected to a port) and your worker dyno to 1 (to actually start the worker). 
+
+You'll only have to do this after your first deploy:
+```
+heroku ps:scale web=0 worker=1
+```
 
 ### Required environment variables:
 
@@ -25,9 +29,9 @@ The bot includes a Heroku Procfile, usable with Heroku free tier (Hobby dev) Dyn
 
 ### Optional environment variables:
 
-`TIMEZONE` - Your timezone for time reporting. (Ex: 'Asia/Jerusalem' or 'USA/Chicago')
+`TIMEZONE` - Your timezone for time reporting. (Ex: 'UTC', 'USA/Chicago', default: 'Asia/Jerusalem')
 
-`BOT_NAME` - Bot name that should appear in slack (default: Cup Bot)
+`BOT_NAME` - Bot name that should appear in slack (default: 'Cup Bot')
 
 `BOT_ICON` - Icon URL for the bot to use in slack
 
@@ -48,6 +52,6 @@ A huge shout out to http://worldcup.sfg.io/ for the FIFA scraper ([estiens/world
 
 ## WARNING
 
-This was written in a rush the day World Cup in 2018 started. This is not good o proper code.
+This was written in a rush the day World Cup in 2018 started. This is not good or proper code.
 This project is based on a scraper, and scraping is inherently a messy and brittle procedural process.
 My primary goal was the get something functional. Please do not use as an example of good Node.js code!
